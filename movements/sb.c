@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:20:41 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/13 11:33:03 by atabarea         ###   ########.fr       */
+/*   Created: 2025/03/13 18:01:19 by alex              #+#    #+#             */
+/*   Updated: 2025/03/13 18:09:59 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
-stack	sa_swap_a(stack a)
+int	sb(int *sb)
 {
-	void	initstack(stack* stack);
-	
+	int	temp;
+
+	temp = sb[0];
+	sb[0] = sb[1];
+	sb[1] = temp;
 }

@@ -5,11 +5,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # define MAX_SIZE 10
-typedef struct stack
+typedef struct s_list
 {
-	int	data[MAX_SIZE];
-	int	top;
-}					stack;
-t_list	sa_swap_a(t_list a);
-
+	int	*sa;
+} t_list;
+void	sa(int *sa);
 #endif
