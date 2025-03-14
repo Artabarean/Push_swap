@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sb.c                                               :+:      :+:    :+:   */
+/*   rra.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 18:01:19 by alex              #+#    #+#             */
-/*   Updated: 2025/03/14 11:28:10 by atabarea         ###   ########.fr       */
+/*   Created: 2025/03/14 11:04:21 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/14 11:27:21 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	_sb(int *sb)
+void	rra(int *sa)
 {
 	int	temp;
-
-	if (!sb || sb[1] == NULL)
-		return (write(1, "stack 'b' has one or less integers", 35));
-	temp = sb[0];
-	sb[0] = sb[1];
-	sb[1] = temp;
-	write(1, "sb\n", 3);
+	int	temp2;
+	
+	if (!sa || sa[1] == NULL)
+		return (write(1, "stack 'a' has one or less integers", 35));
+	temp = sa[8];
+	temp2 = sa[7];
+	sa[8] = sa[9];
+	sa[7] = temp;
+	temp = sa[6];
+	sa[6] = temp2;
+	temp2 = sa[5];
+	sa[5] = temp;
+	temp = sa[4];
+	sa[4] = temp2;
+	temp2 = sa[3];
+	sa[3] = temp;
+	temp = sa[2];
+	sa[2] = temp2;
+	temp2 = sa[1];
+	sa[1] = temp;
+	temp = sa[0];
+	sa[0] = temp2;
+	sa[9] = temp;
+	write(1, "rra\n", 4);
 }
