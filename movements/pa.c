@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 18:09:29 by alex              #+#    #+#             */
-/*   Updated: 2025/03/14 12:14:55 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/14 13:57:42 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,19 @@ void    pa(int *sa, int *sb)
 {
     int i;
     int temp;
-
-    if (!sb)
-        return (write(1, "stack 'b' is empty", 19));
-    temp = sa[0];
-    sa[0] = sb[0];
+    
+    if (sa == NULL || sb == NULL)
+        return;
+    temp = sb[0];
     i = 0;
-    while (sa[i + 1] != NULL)
-    {
-        sa[i + 1] = sa[i];
+    while (sa[i] != '\0')
         i++;
+    while (i > 0)
+    {
+        sa[i] = sa[i - 1];
+        i--;
     }
-    write(1, "pa\n", 3);
+    sa[0] = temp;
+    
+    write(1, "pb\n", 3);
 }
