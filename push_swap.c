@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/18 10:45:24 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:31:05 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,68 +43,4 @@ int *init_stack(int size, int start_val)
     }
     stack[size] = '\0';    
     return stack;
-}
-
-int main(int argc, char *argv[])
-{
-    int *stack_a = init_stack(5, 10);
-    int *stack_b = init_stack(3, 20);
-    
-    printf("Initial state:\n");
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating pa (push B->A):\n");
-    pa(stack_a, stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating pb (push A->B):\n");
-    pb(stack_a, stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating ra (rotate A):\n");
-    ra(stack_a);
-    print_stack(stack_a, "Stack A");
-    printf("\n");
-    printf("Demonstrating rb (rotate B):\n");
-    rb(stack_b);
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating rr (rotate both):\n");
-    rr(stack_a, stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating rra (reverse rotate A):\n");
-    rra(stack_a);
-    print_stack(stack_a, "Stack A");
-    printf("\n");
-    printf("Demonstrating rrb (reverse rotate B):\n");
-    rrb(stack_b);
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating rrr (reverse rotate both):\n");
-    rrr(stack_a, stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating _sa (swap first two elements of A):\n");
-    _sa(stack_a);
-    print_stack(stack_a, "Stack A");
-    printf("\n");
-    printf("Demonstrating _sb (swap first two elements of B):\n");
-    _sb(stack_b);
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    printf("Demonstrating ss (swap both):\n");
-    ss(stack_a, stack_b);
-    print_stack(stack_a, "Stack A");
-    print_stack(stack_b, "Stack B");
-    printf("\n");
-    free(stack_a);
-    free(stack_b);
-    
-    return 0;
 }
