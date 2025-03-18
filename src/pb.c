@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 11:01:29 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/14 11:02:34 by atabarea         ###   ########.fr       */
+/*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
+/*   Updated: 2025/03/18 10:48:12 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rr(int *sa, int *sb)
+void    pb(int *sa, int *sb)
 {
-	sa = ra(sa);
-	sb = rb(sb);
-	write(1, "rr\n", 3);
+    int i;
+    int temp;
+    
+    i = 0;
+    if (sa[i] == '\0' || sb[i] == '\0')
+        return ;
+    temp = sa[0];
+    while (sb[i] != '\0')
+        i++;
+    while (i > 0)
+    {
+        sb[i] = sb[i - 1];
+        i--;
+    }
+    sb[0] = temp;
+    
+    write(1, "pb\n", 3);
 }

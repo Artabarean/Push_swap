@@ -6,18 +6,18 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 18:01:19 by alex              #+#    #+#             */
-/*   Updated: 2025/03/14 11:28:10 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:57:28 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	_sb(int *sb)
+void	_sb(int *sb)
 {
 	int	temp;
 
-	if (!sb || sb[1] == NULL)
-		return (write(1, "stack 'b' has one or less integers", 35));
+	if (sb[0] == '\0' || sb[1] == '\0')
+		return ;
 	temp = sb[0];
 	sb[0] = sb[1];
 	sb[1] = temp;
