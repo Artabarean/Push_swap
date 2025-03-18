@@ -4,7 +4,6 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# define MAX_SIZE 10
 typedef struct s_list
 {
 	int	*sa;
