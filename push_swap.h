@@ -24,5 +24,7 @@ void    rrb(int *sb);
 void	rrr(int *sa, int *sb);
 void	ss(int *sa, int *sb);
 int		intarray_len(int	*s);
+int		intarray_sorted(int	*s);
+int *intarray_init(int *s, char **argv, int argc);
 
 #endif
