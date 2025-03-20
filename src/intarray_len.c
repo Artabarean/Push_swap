@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_init.c                                       :+:      :+:    :+:   */
+/*   intarray_len.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/19 17:20:38 by alex              #+#    #+#             */
-/*   Updated: 2025/03/19 17:22:41 by alex             ###   ########.fr       */
+/*   Created: 2025/03/20 09:34:35 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/20 09:55:00 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list   stack_init(int *sa, char *argv[], int argc)
+int	intarray_len(int *s)
 {
-    
+	int	count;
+
+	count = 0;
+	while (s[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
 }

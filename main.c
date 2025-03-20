@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/19 17:24:29 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/20 09:57:15 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
 		stack_init(sa, argv + 1, 2 == argc);
 		if (!stack_sorted(sa))
 		{
-			if (stack_len(sa) == 2)
+			if (intarray_len(sa) == 2)
 				_sa(&sa);
 			else if (stack_len(sa) == 3)
 				tiny_sort(&sa);

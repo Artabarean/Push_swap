@@ -23,5 +23,6 @@ void    rra(int *sa);
 void    rrb(int *sb);
 void	rrr(int *sa, int *sb);
 void	ss(int *sa, int *sb);
-int main(int argc, char *argv[]);
+int		intarray_len(int	*s);
+
 #endif
