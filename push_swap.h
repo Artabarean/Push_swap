@@ -5,18 +5,18 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct t_list
 {
-	int	*sa;
-	int	sapos;
-	int	*sb;
-	int	sbpos;
+	int	*array;
+	int	size;
+	int	top;
 }  t_list;
-void	_sa(int *sa);
+
+void	_sa(t_list *stack);
 void	_sb(int *sb);
 void    pa(int *sa, int *sb);
-void    pb(int *sa, int *sb);
-void    ra(int *sa);
+void    pb(t_list *src, t_list *dst);
+void    ra(t_list *stack);
 void    rb(int *sb);
 void	rr(int *sa, int *sb);
 void    rra(int *sa);

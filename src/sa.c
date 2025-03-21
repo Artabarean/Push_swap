@@ -3,23 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   sa.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:20:41 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/18 10:57:07 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/21 11:10:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	_sa(int *sa)
+void _sa(t_list *stack)
 {
-	int	temp;
-
-	if (sa[0] == '\0' || sa[1] == '\0')
-		return ;
-	temp = sa[0];
-	sa[0] = sa[1];
-	sa[1] = temp;
-	write(1, "sa\n", 3);
+    if (stack->top < 1)
+        return;
+    
+    int temp = stack->array[stack->top];
+    stack->array[stack->top] = stack->array[stack->top - 1];
+    stack->array[stack->top - 1] = temp;
 }

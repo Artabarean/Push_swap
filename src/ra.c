@@ -3,32 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:45:59 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/18 10:18:35 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/21 11:16:59 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(int *sa)
+void ra(t_list *stack)
 {
-    int temp;
+    int top_value;
     int i;
-    
+
     i = 0;
-    if (!sa || sa[1] == '\0')
-        return ;
-    while (sa[i] != '\0')
-      i++;
-    i--;
-    temp = sa[i];
+    if (stack->top < 1)
+        return;
+    i = stack->top;
+    top_value = stack->array[stack->top];
     while (i > 0)
     {
-        sa[i] = sa[i - 1];
+        stack->array[i] = stack->array[i - 1];
         i--;
-    }
-    sa[0] = temp;
-	write(1, "ra\n", 3);
+    }   
+    
+    stack->array[0] = top_value;
 }

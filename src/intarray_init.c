@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   intarray_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
-/*   Updated: 2025/03/21 11:17:07 by alex             ###   ########.fr       */
+/*   Created: 2025/03/20 10:17:47 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/21 11:02:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pb(t_list *src, t_list *dst)
+t_list *stack_init(int size)
 {
-    int value;
-    
-    if (stack_is_empty(src))
-        return;
-    
-    if (stack_pop(src, &value))
-        stack_push(dst, value);
+    t_list *stack = (t_list *)malloc(sizeof(t_list));
+    if (!stack)
+        return (NULL);
+    stack->array = (int *)malloc(sizeof(int) * size);
+    if (!stack->array)
+    {
+        free(stack);
+        return (NULL);
+    }
+    stack->size = size;
+    stack->top = -1;
+    return (stack);
 }

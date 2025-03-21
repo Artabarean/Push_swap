@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   stack_init_from_strings.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
-/*   Updated: 2025/03/21 11:17:07 by alex             ###   ########.fr       */
+/*   Created: 2025/03/21 11:19:18 by alex              #+#    #+#             */
+/*   Updated: 2025/03/21 11:19:55 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pb(t_list *src, t_list *dst)
+void stack_init_from_strings(t_list *stack, char **strings)
 {
-    int value;
-    
-    if (stack_is_empty(src))
-        return;
-    
-    if (stack_pop(src, &value))
-        stack_push(dst, value);
+    int i;
+
+    i = 0;
+    while (strings[i])
+    {
+        stack_push(stack, atoi(strings[i]));
+        i++;
+    }
 }

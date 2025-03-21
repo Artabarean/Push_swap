@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   intarray_init.c                                    :+:      :+:    :+:   */
+/*   stack_pop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 10:17:47 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/20 11:42:30 by atabarea         ###   ########.fr       */
+/*   Created: 2025/03/21 11:03:42 by alex              #+#    #+#             */
+/*   Updated: 2025/03/21 11:04:17 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
-int *intarray_init(int *s, char **argv)
+int stack_pop(t_list *stack, int *value)
 {
-	int	i;
-	
-	i = 0;
-	while (argv[i] != '\0')
-	{
-		s[i] = ft_atoi(argv[i]);
-		i++;
-	}
-	return (s);
+    if (stack->top < 0)
+        return (0);
+    
+    *value = stack->array[stack->top--];
+    return (1);
 }
