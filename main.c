@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/21 11:23:21 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/21 11:28:58 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,9 @@ int main(int argc, char *argv[])
         numbers = ft_split(argv[1], ' ');
     else
         numbers = &argv[1];
-    // Count number of elements
     count = 0;
     while (numbers[count])
         count++; 
-    // Initialize stacks
     t_list *sa = stack_init(count);
     t_list *sb = stack_init(count);
     if (!sa || !sb)
@@ -61,9 +59,7 @@ int main(int argc, char *argv[])
         free_stack(sb);
         return (1);
     }
-    // Fill stack a with numbers
     stack_init_from_strings(sa, numbers);
-    // If already sorted, do nothing
     if (!stack_is_sorted(sa))
     {
         if (stack_len(sa) == 2)
@@ -76,16 +72,10 @@ int main(int argc, char *argv[])
         else
             push_swap(sa, sb);
     }
-    // Free memory
     free_stack(sa);
     free_stack(sb);
-    // If we called ft_split, we should free the result
     if (argc == 2)
-    {
-        // Note: This isn't a complete free since we'd need
-        // to free each string too if they were newly allocated
-        free(numbers);
-    }
+		free(numbers);
     
-    return 0;
+    return (0);
 }
