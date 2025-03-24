@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/21 11:28:58 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/24 11:35:47 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,30 @@ int stack_len(t_list *stack)
     return (stack->top + 1);
 }
 
+int verification(int argc, char *argv[], char **numbers, int count)
+{
+    t_list *sa = stack_init(count);
+    t_list *sb = stack_init(count);
+    if (!sa || !sb)
+        return (free_stacks(sa, sb), 1);
+    stack_init_from_strings(sa, numbers);
+    sa->top = count;
+    if (!stack_is_sorted(sa))
+    {
+        if (stack_len(sa) == 2)
+            if (sa->array[1] > sa->array[0])
+                swap(sa);
+        else if (stack_len(sa) == 3)
+            tiny_sort(sa);
+        else
+            push_swap(sa, sb);
+    }
+    free_stack(sa);
+    free_stack(sb);
+    if (argc == 2)
+		free(numbers);
+    return (0);
+}
 
 int main(int argc, char *argv[])
 {
@@ -50,32 +74,6 @@ int main(int argc, char *argv[])
         numbers = &argv[1];
     count = 0;
     while (numbers[count])
-        count++; 
-    t_list *sa = stack_init(count);
-    t_list *sb = stack_init(count);
-    if (!sa || !sb)
-    {
-        free_stack(sa);
-        free_stack(sb);
-        return (1);
-    }
-    stack_init_from_strings(sa, numbers);
-    if (!stack_is_sorted(sa))
-    {
-        if (stack_len(sa) == 2)
-        {
-            if (sa->array[1] > sa->array[0])
-                _sa(sa);
-        }
-        else if (stack_len(sa) == 3)
-            tiny_sort(sa);
-        else
-            push_swap(sa, sb);
-    }
-    free_stack(sa);
-    free_stack(sb);
-    if (argc == 2)
-		free(numbers);
-    
-    return (0);
+        count++;
+    return (verification(argc, argv, numbers, count));
 }

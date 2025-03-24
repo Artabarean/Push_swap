@@ -12,19 +12,45 @@ typedef struct t_list
 	int	top;
 }  t_list;
 
-void	_sa(t_list *stack);
-void	_sb(int *sb);
-void    pa(int *sa, int *sb);
-void    pb(t_list *src, t_list *dst);
-void    ra(t_list *stack);
-void    rb(int *sb);
-void	rr(int *sa, int *sb);
-void    rra(int *sa);
-void    rrb(int *sb);
-void	rrr(int *sa, int *sb);
-void	ss(int *sa, int *sb);
-int		intarray_len(int	*s);
-int		intarray_sorted(int	*s);
-int *intarray_init(int *s, char **argv);
+typedef struct l_list
+{
+	int len;
+    int chunk_count;
+    int chunk_size;
+    int min;
+    int max;
+    int median;
+    int chunk_min;
+    int chunk_max;
+    int elements_in_chunk;
+    int pushed;
+    int best_pos;
+    int largest_pos;
+	int c;
+    int i;
+}	l_list;
+
+void		free_stack(t_list *stack);
+void		free_stacks(t_list *sa, t_list *sb);
+void		push_to(t_list *src, t_list *dst);
+void		rotate(t_list *stack);
+void		stack_init_from_strings(t_list *stack, char **strings);
+t_list		*stack_init(int size);
+int 		stack_pop(t_list *stack, int *value);
+int 		stack_push(t_list *stack, int value);
+void 		swap(t_list *stack);
+void		tiny_sort(t_list *sa);
+int			stack_is_sorted(t_list *stack);
+int 		stack_is_empty(t_list *stack);
+int 		stack_len(t_list *stack);
+int 		verification(int argc, char *argv[], char **numbers, int count);
+void 		push_swap(t_list *a, t_list *b);
+void 		sort_small(t_list *a, t_list *b);
+int 		find_smallest_position(t_list *stack);
+void 		move_to_top(t_list *stack, int pos);
+void 		sort_chunks(t_list *a, t_list *b, l_list *s);
+void 		find_min_max_median(t_list *stack, int *min, int *max, int *median);
+int 		find_largest_position(t_list *stack);
+int 		find_next_in_range(t_list *stack, int min_val, int max_val);
 
 #endif

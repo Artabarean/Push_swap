@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:45:59 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/21 11:16:59 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/24 11:52:20 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_list *stack)
+void rotate(t_list *stack)
 {
     int top_value;
     int i;
@@ -26,7 +26,6 @@ void ra(t_list *stack)
     {
         stack->array[i] = stack->array[i - 1];
         i--;
-    }   
-    
+    }
     stack->array[0] = top_value;
 }

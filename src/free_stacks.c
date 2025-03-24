@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   free_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 09:20:41 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/21 11:10:24 by alex             ###   ########.fr       */
+/*   Created: 2025/03/24 10:08:16 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/24 11:00:36 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void _sa(t_list *stack)
+void free_stacks(t_list *sa, t_list *sb)
 {
-    if (stack->top < 1)
-        return;
-    
-    int temp = stack->array[stack->top];
-    stack->array[stack->top] = stack->array[stack->top - 1];
-    stack->array[stack->top - 1] = temp;
+    if (sa && sb)
+    {
+        if (sa->array && sb->array)
+        {
+			free(sa->array);
+			free(sb->array);
+		}
+        free(sa);
+		free(sb);
+    }
 }

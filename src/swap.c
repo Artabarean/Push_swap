@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
-/*   Updated: 2025/03/21 11:17:07 by alex             ###   ########.fr       */
+/*   Created: 2025/03/13 09:20:41 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/24 10:56:46 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void pb(t_list *src, t_list *dst)
+void swap(t_list *stack)
 {
-    int value;
-    
-    if (stack_is_empty(src))
+    int temp;
+
+    temp = 0;
+    if (stack->top < 1)
         return;
-    
-    if (stack_pop(src, &value))
-        stack_push(dst, value);
+    temp = stack->array[stack->top];
+    stack->array[stack->top] = stack->array[stack->top - 1];
+    stack->array[stack->top - 1] = temp;
 }

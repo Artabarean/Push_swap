@@ -3,33 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   tiny_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:14:54 by alex              #+#    #+#             */
-/*   Updated: 2025/03/21 11:16:51 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/24 11:03:17 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void tiny_sort(t_list *stack)
+void tiny_sort(t_list *sa)
 {
-    if (stack_len(stack) != 3)
+    if (stack_len(sa) != 3)
         return;
-    if (stack->array[0] > stack->array[1] && stack->array[1] < stack->array[2] && stack->array[0] < stack->array[2])
-        _sa(stack);
-    else if (stack->array[0] > stack->array[1] && stack->array[1] > stack->array[2])
+    if (sa->array[0] > sa->array[1] && sa->array[1] < sa->array[2]
+        && sa->array[0] < sa->array[2])
+        swap(sa);
+    else if (sa->array[0] > sa->array[1] && sa->array[1] > sa->array[2])
     {
-        _sa(stack);
-        ra(stack);
+        swap(sa);
+        rotate(sa);
     }
-    else if (stack->array[0] > stack->array[1] && stack->array[1] < stack->array[2] && stack->array[0] > stack->array[2])
-        ra(stack);
-    else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] < stack->array[2])
+    else if (sa->array[0] > sa->array[1] && sa->array[1] < sa->array[2]
+        && sa->array[0] > sa->array[2])
+        rotate(sa);
+    else if (sa->array[0] < sa->array[1] && sa->array[1] > sa->array[2]
+        && sa->array[0] < sa->array[2])
     {
-        _sa(stack);
-        ra(stack);
+        swap(sa);
+        rotate(sa);
     }
-    else if (stack->array[0] < stack->array[1] && stack->array[1] > stack->array[2] && stack->array[0] > stack->array[2])
-        _sa(stack);
+    else if (sa->array[0] < sa->array[1] && sa->array[1] > sa->array[2]
+        && sa->array[0] > sa->array[2])
+        swap(sa);
 }
