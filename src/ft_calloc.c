@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/14 10:54:48 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/18 10:18:31 by atabarea         ###   ########.fr       */
+/*   Created: 2025/01/27 10:15:21 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/25 11:49:39 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rb(int *sb)
+void    *ft_calloc(size_t nmemb, size_t size)
 {
-    int temp;
-    int i;
-    
-    i = 0;
-    if (!sb || sb[1] == '\0')
-        return ;
-    while (sb[i] != '\0')
-      i++;
-    i--;
-    temp = sb[i];
-    while (i > 0)
+    char     *ptr;
+
+    ptr = malloc(nmemb * size * sizeof(char));
+    if (ptr == NULL)
     {
-        sb[i] = sb[i - 1];
-        i--;
+        return (NULL);
     }
-    sb[0] = temp;
-	write(1, "rb\n", 3);
+    ft_bzero(ptr, (nmemb * size));
+    return (ptr);
 }
+/*int main()
+{    printf("%p\n", ft_calloc(5, 10));
+    return (0);
+}*/

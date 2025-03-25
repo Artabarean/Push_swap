@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 10:17:47 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/24 10:00:08 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:29:23 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list *stack_init(int size)
+t_list  *stack_init(int size)
 {
     t_list *stack = (t_list *)malloc(sizeof(t_list));
     if (!stack)

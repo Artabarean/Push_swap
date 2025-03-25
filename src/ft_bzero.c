@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/27 10:21:23 by atabarea          #+#    #+#             */
-/*   Updated: 2025/01/29 11:15:28 by atabarea         ###   ########.fr       */
+/*   Created: 2025/01/27 10:21:09 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/25 11:49:56 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_isalpha(int c)
+void	ft_bzero(void *s, size_t n)
 {
-	if (c >= 65 && c <= 90)
-		return (1);
-	if (c >= 97 && c <= 122)
-		return (1);
-	return (0);
+	size_t			i;
+	unsigned char	*ptr;
+	
+	ptr = s;	
+	i = 0;
+	while(i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
+	s = ptr;
 }
 /*#include <stdio.h>
 int	main(void)
 {
-	int c = 66;
-	printf("%d\n", ft_isalpha(c));
+	char	s[10] = "holapepito";
+	size_t	len = 4;
+
+	printf("%s\n", s);
+	ft_bzero(s, len);
+	printf("%s\n", s);
 	return (0);
 }*/

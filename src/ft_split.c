@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:15:09 by atabarea          #+#    #+#             */
-/*   Updated: 2025/01/29 09:22:50 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:48:59 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
 static size_t	ft_wrdcnt(char const *s, char c)
 {

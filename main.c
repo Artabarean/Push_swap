@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/24 11:35:47 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/25 11:41:38 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,21 @@ int stack_len(t_list *stack)
     return (stack->top + 1);
 }
 
-int verification(int argc, char *argv[], char **numbers, int count)
+int verification(int argc, char **numbers, int count)
 {
-    t_list *sa = stack_init(count);
-    t_list *sb = stack_init(count);
+    t_list *sa;
+    t_list *sb;
+    
+    sa = stack_init(count);
+    sb = stack_init(count);
     if (!sa || !sb)
         return (free_stacks(sa, sb), 1);
     stack_init_from_strings(sa, numbers);
     sa->top = count;
     if (!stack_is_sorted(sa))
     {
-        if (stack_len(sa) == 2)
-            if (sa->array[1] > sa->array[0])
-                swap(sa);
+        if (stack_len(sa) == 2 && sa->array[1] > sa->array[0])
+            swap(sa);
         else if (stack_len(sa) == 3)
             tiny_sort(sa);
         else
@@ -75,5 +77,5 @@ int main(int argc, char *argv[])
     count = 0;
     while (numbers[count])
         count++;
-    return (verification(argc, argv, numbers, count));
+    return (verification(argc, numbers, count));
 }
