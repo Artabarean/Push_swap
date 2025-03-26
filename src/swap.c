@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 09:20:41 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/24 10:56:46 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/26 09:57:23 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void swap(t_list *stack)
     temp = stack->array[stack->top];
     stack->array[stack->top] = stack->array[stack->top - 1];
     stack->array[stack->top - 1] = temp;
+    write(1, "sa\n", 3);
 }

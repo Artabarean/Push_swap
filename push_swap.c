@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/25 11:37:11 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/26 10:33:29 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,22 @@ void sort_three(t_list *a)
     top = a->array[a->top];
     middle = a->array[a->top - 1];
     bottom = a->array[a->top - 2];
-    
     if (top > middle && middle < bottom && top < bottom)
         swap(a);
     else if (top > middle && middle > bottom)
     {
         swap(a);
-        reverse_rotate(a);
+        reverse_rotate_a(a);
     }
     else if (top > middle && middle < bottom && top > bottom)
-        rotate(a);
+        rotate_a(a);
     else if (top < middle && middle > bottom && top < bottom)
     {
         swap(a);
-        rotate(a);
+        rotate_a(a);
     }
     else if (top < middle && middle > bottom && top > bottom)
-        reverse_rotate(a);
+        reverse_rotate_a(a);
 }
 
 void sort_small(t_list *a, t_list *b)
@@ -52,12 +51,13 @@ void sort_small(t_list *a, t_list *b)
     {
         smallest_pos = find_smallest_position(a);
         move_to_top(a, smallest_pos);
-        push_to(a, b);
+        write(1, "a\n", 2);
+        push_to_b(a, b);
         i++;
     }
     sort_three(a);
     while (b->top >= 0)
-        push_to(b, a);
+        push_to_a(b, a);
 }
 
 int find_smallest_position(t_list *stack)

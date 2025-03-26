@@ -6,34 +6,34 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:14:54 by alex              #+#    #+#             */
-/*   Updated: 2025/03/24 11:03:17 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/26 10:34:06 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void tiny_sort(t_list *sa)
+void tiny_sort(t_list *a)
 {
-    if (stack_len(sa) != 3)
+    if (stack_len(a) != 3)
         return;
-    if (sa->array[0] > sa->array[1] && sa->array[1] < sa->array[2]
-        && sa->array[0] < sa->array[2])
-        swap(sa);
-    else if (sa->array[0] > sa->array[1] && sa->array[1] > sa->array[2])
+    if (a->array[0] > a->array[1] && a->array[1] < a->array[2]
+        && a->array[0] < a->array[2])
+        swap(a);
+    else if (a->array[0] > a->array[1] && a->array[1] > a->array[2])
     {
-        swap(sa);
-        rotate(sa);
+        swap(a);
+        rotate_a(a);
     }
-    else if (sa->array[0] > sa->array[1] && sa->array[1] < sa->array[2]
-        && sa->array[0] > sa->array[2])
-        rotate(sa);
-    else if (sa->array[0] < sa->array[1] && sa->array[1] > sa->array[2]
-        && sa->array[0] < sa->array[2])
+    else if (a->array[0] > a->array[1] && a->array[1] < a->array[2]
+        && a->array[0] > a->array[2])
+        rotate_a(a);
+    else if (a->array[0] < a->array[1] && a->array[1] > a->array[2]
+        && a->array[0] < a->array[2])
     {
-        swap(sa);
-        rotate(sa);
+        swap(a);
+        rotate_a(a);
     }
-    else if (sa->array[0] < sa->array[1] && sa->array[1] > sa->array[2]
-        && sa->array[0] > sa->array[2])
-        swap(sa);
+    else if (a->array[0] < a->array[1] && a->array[1] > a->array[2]
+        && a->array[0] > a->array[2])
+        swap(a);
 }

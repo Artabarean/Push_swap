@@ -15,14 +15,14 @@ typedef struct t_list
 typedef struct l_list
 {
 	int len;
-    int chunk_count;
-    int chunk_size;
+    int ck_count;
+    int ck_size;
     int min;
     int max;
     int median;
-    int chunk_min;
-    int chunk_max;
-    int elements_in_chunk;
+    int ck_min;
+    int ck_max;
+    int elements_in_ck;
     int pushed;
     int best_pos;
     int largest_pos;
@@ -32,7 +32,7 @@ typedef struct l_list
 
 void		free_stack(t_list *stack);
 void		free_stacks(t_list *sa, t_list *sb);
-void		push_to(t_list *src, t_list *dst);
+void		push_to_a(t_list *src, t_list *dst);
 void		rotate(t_list *stack);
 void	    reverse_rotate(t_list *stack);
 void		stack_init_from_strings(t_list *stack, char **strings);
@@ -59,5 +59,10 @@ char	    **ft_split(char const *s, char c);
 int	        ft_atoi(const char *nptr);
 void        *ft_calloc(size_t nmemb, size_t size);
 void	    ft_bzero(void *s, size_t n);
+void        rotate_b(t_list *stack);
+void        rotate_a(t_list *stack);
+void        reverse_rotate_b(t_list *stack);
+void        reverse_rotate_a(t_list *stack);
+void		push_to_b(t_list *src, t_list *dst);
 
 #endif
