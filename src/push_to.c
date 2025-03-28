@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
-/*   Updated: 2025/03/26 10:28:42 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/28 10:29:00 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void push_to_a(t_list *src, t_list *dst)
 {

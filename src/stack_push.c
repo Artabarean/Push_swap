@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   stack_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:02:45 by alex              #+#    #+#             */
-/*   Updated: 2025/03/24 10:53:35 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/28 10:29:29 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int stack_push(t_list *stack, int value)
 {

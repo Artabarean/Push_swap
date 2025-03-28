@@ -6,11 +6,11 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:15:21 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/25 11:49:39 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/28 10:28:52 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void    *ft_calloc(size_t nmemb, size_t size)
 {

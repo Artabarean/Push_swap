@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/26 10:33:29 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/28 11:11:48 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,18 @@ void sort_three(t_list *a)
 
 void sort_small(t_list *a, t_list *b)
 {
-    int len;
-    int i;
-    int smallest_pos;
+    int     len;
+    int     i;
+    char    name;
+    int     smallest_pos;
     
     len = a->top + 1;
+    name = '\0';
     i = 0;
     while (i < len - 3)
     {
         smallest_pos = find_smallest_position(a);
-        move_to_top(a, smallest_pos);
-        write(1, "a\n", 2);
+        move_to_top(a, smallest_pos, name = 'a');
         push_to_b(a, b);
         i++;
     }
@@ -83,7 +84,7 @@ int find_smallest_position(t_list *stack)
     return (pos);
 }
 
-void move_to_top(t_list *stack, int pos)
+void move_to_top(t_list *stack, int pos, char name)
 {
     int len;
     
@@ -95,7 +96,7 @@ void move_to_top(t_list *stack, int pos)
     {
         while (pos != stack->top)
         {
-            rotate(stack);
+            rotate(stack, name);
             pos = (pos + 1) % len;
         }
     }
@@ -103,7 +104,7 @@ void move_to_top(t_list *stack, int pos)
     {
         while (pos != stack->top)
         {
-            reverse_rotate(stack);
+            reverse_rotate(stack, name);
             pos = (pos - 1 + len) % len;
         }
     }
