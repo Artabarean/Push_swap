@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:40:04 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/28 11:11:12 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/31 11:30:42 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rotate_a(t_list *stack)
 	int	i;
 	int	last_value;
 
-	i = 0;
+	i = 0; 
 	if (stack->top < 1)
 		return ;
 	i = stack->top;

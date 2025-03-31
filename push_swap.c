@@ -5,97 +5,77 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/31 09:51:56 by atabarea         ###   ########.fr       */
+/*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
+/*   Updated: 2025/03/31 13:03:01 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sort_small(t_list *a, t_list *b)
+int stack_is_sorted(t_list *stack)
 {
-    int     len;
-    int     i;
-    char    name;
-    int     smallest_pos;
-    
-    len = a->top + 1;
-    name = '\0';
-    i = 0;
-    while (i < len - 3)
+	int	i;
+
+	i = 0;
+    while (i < stack->top)
     {
-        smallest_pos = find_smallest_position(a);
-        move_to_top(a, smallest_pos, name = 'a');
-        if (stack_is_sorted(a) == 0)
-            return;
-        push_to_b(a, b);
-        i++;
+        if (stack->array[i] > stack->array[i + 1])
+            return (0);
+		i++;
     }
-    sort_three(a);
-    while (b->top >= 0)
-        push_to_a(b, a);
+    return (1);
 }
 
-int find_smallest_position(t_list *stack)
+int stack_is_empty(t_list *stack)
 {
-    int smallest;
-    int pos;
-    int i;
-    
-    smallest = stack->array[0];
-    pos = 0;
-    i = 1;
-    
-    while (i <= stack->top)
-    {
-        if (stack->array[i] < smallest)
-        {
-            smallest = stack->array[i];
-            pos = i;
-        }
-        i++;
-    }
-    
-    return (pos);
+    return (stack->top < 0);
 }
 
-void move_to_top(t_list *stack, int pos, char name)
+int stack_len(t_list *stack)
 {
-    int len;
+    return (stack->top + 1);
+}
+
+int push_swap(int argc, char **numbers, int count)
+{
+    t_list *sa;
+    t_list *sb;
     
-    len = stack->top + 1;
-    
-    if (pos == stack->top)
-        return;
-    if (pos > len / 2)
+    sa = stack_init(count);
+    sb = stack_init(count);
+    if (!sa || !sb)
+        return (free_stacks(sa, sb), 1);
+    stack_init_from_strings(sa, numbers);
+    sa->top = count - 1;
+    if (!stack_is_sorted(sa))
     {
-        while (pos != stack->top)
-        {
-            rotate(stack, name);
-            pos = (pos + 1) % len;
-        }
+        if (stack_len(sa) == 2 && sa->array[1] > sa->array[0])
+            swap(sa);
+        else if (stack_len(sa) == 3)
+            sort_three(sa);
+        else
+            organizer(sa, sb);
     }
+    free_stack(sa);
+    free_stack(sb);
+    if (argc == 2)
+		free(numbers);
+    return (0);
+}
+
+int main(int argc, char *argv[])
+{
+    char **numbers;
+	int count;
+
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
+        return (1);
+    if (argc == 2)
+        numbers = ft_split(argv[1], ' ');
     else
-    {
-        while (pos != stack->top)
-        {
-            reverse_rotate(stack, name);
-            pos = (pos - 1 + len) % len;
-        }
-    }
-}
-
-void push_swap(t_list *a, t_list *b)
-{
-    l_list  *auxvar;
-    int     len;
-    int     initializer;
-
-    initializer = 0;
-    len = a->top + 1;
-    auxvar = struct_init(initializer);
-    if (len <= 5)
-        sort_small(a, b);
-    else
-        sort_chunks(a, b, auxvar);
+        numbers = &argv[1];
+    count = 0;
+    while (numbers[count])
+        count++;
+    return (push_swap(argc, numbers, count));
 }
