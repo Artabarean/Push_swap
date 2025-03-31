@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tiny_sort.c                                        :+:      :+:    :+:   */
+/*   sort_three.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:14:54 by alex              #+#    #+#             */
-/*   Updated: 2025/03/31 09:49:39 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/03/31 13:25:53 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,29 @@
 
 void sort_three(t_list *a)
 {
-    int top;
-    int middle;
-    int bottom;
+    int mid;
+    int bot;
     
-    top = a->array[a->top];
-    middle = a->array[a->top - 1];
-    bottom = a->array[a->top - 2];
-    if (top > middle && middle < bottom && top < bottom)
+    a->array[a->top];
+    mid = a->array[a->top - 1];
+    bot = a->array[a->top - 2];
+    if (a->array[a->top] > mid && mid < bot && a->array[a->top] < bot)
         swap(a);
-    else if (top > middle && middle > bottom)
+    else if (a->array[a->top] > mid && mid > bot)
     {
         swap(a);
         reverse_rotate_a(a);
     }
-    else if (top > middle && middle < bottom && top > bottom)
+    else if (a->array[a->top] > mid && mid < bot && a->array[a->top] > bot)
         rotate_a(a);
-    else if (top < middle && middle > bottom && top < bottom)
+    else if (a->array[a->top] < mid && mid > bot && a->array[a->top] < bot)
     {
         swap(a);
         rotate_a(a);
     }
-    else if (top < middle && middle > bottom && top > bottom)
+    else if (a->array[a->top] < mid && mid > bot && a->array[a->top] > bot)
+    {
+        swap(a);
         reverse_rotate_a(a);
+    }
 }
