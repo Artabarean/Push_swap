@@ -31,6 +31,7 @@ typedef struct l_list
 }	l_list;
 
 void		free_stack(t_list *stack);
+void        sort_three(t_list *a);
 void		free_stacks(t_list *sa, t_list *sb);
 void		push_to_a(t_list *src, t_list *dst);
 void		rotate(t_list *stack, char name);
@@ -41,7 +42,6 @@ l_list      *struct_init(int initializer);
 int 		stack_pop(t_list *stack, int *value);
 int 		stack_push(t_list *stack, int value);
 void 		swap(t_list *stack);
-void		tiny_sort(t_list *sa);
 int			stack_is_sorted(t_list *stack);
 int 		stack_is_empty(t_list *stack);
 int 		stack_len(t_list *stack);

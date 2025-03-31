@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/25 11:41:38 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/31 09:50:00 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int verification(int argc, char **numbers, int count)
         if (stack_len(sa) == 2 && sa->array[1] > sa->array[0])
             swap(sa);
         else if (stack_len(sa) == 3)
-            tiny_sort(sa);
+            sort_three(sa);
         else
             push_swap(sa, sb);
     }

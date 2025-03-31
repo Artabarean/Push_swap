@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
+#    By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 09:24:28 by atabarea          #+#    #+#              #
-#    Updated: 2025/03/28 11:01:07 by alex             ###   ########.fr        #
+#    Updated: 2025/03/31 09:50:30 by atabarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = push_swap.c main.c ./src/free_stack.c ./src/free_stacks.c ./src/push_to.c\
  	./src/reverse_rotate.c ./src/rotate.c sort_chunks.c\
 	./src/stack_init_from_strings.c ./src/stack_init.c ./src/stack_pop.c\
-	./src/stack_push.c ./src/swap.c ./src/tiny_sort.c ./src/ft_atoi.c\
+	./src/stack_push.c ./src/swap.c ./src/sort_three.c ./src/ft_atoi.c\
 	./src/ft_split.c ./src/ft_calloc.c ./src/ft_bzero.c ./src/struct_init.c
 OBJ = $(SRC:.c=.o)
 INCLUDE = push_swap.h

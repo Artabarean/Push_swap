@@ -3,41 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/28 11:11:48 by alex             ###   ########.fr       */
+/*   Updated: 2025/03/31 09:51:56 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void sort_three(t_list *a)
-{
-    int top;
-    int middle;
-    int bottom;
-    
-    top = a->array[a->top];
-    middle = a->array[a->top - 1];
-    bottom = a->array[a->top - 2];
-    if (top > middle && middle < bottom && top < bottom)
-        swap(a);
-    else if (top > middle && middle > bottom)
-    {
-        swap(a);
-        reverse_rotate_a(a);
-    }
-    else if (top > middle && middle < bottom && top > bottom)
-        rotate_a(a);
-    else if (top < middle && middle > bottom && top < bottom)
-    {
-        swap(a);
-        rotate_a(a);
-    }
-    else if (top < middle && middle > bottom && top > bottom)
-        reverse_rotate_a(a);
-}
 
 void sort_small(t_list *a, t_list *b)
 {
@@ -53,6 +26,8 @@ void sort_small(t_list *a, t_list *b)
     {
         smallest_pos = find_smallest_position(a);
         move_to_top(a, smallest_pos, name = 'a');
+        if (stack_is_sorted(a) == 0)
+            return;
         push_to_b(a, b);
         i++;
     }
@@ -119,19 +94,6 @@ void push_swap(t_list *a, t_list *b)
     initializer = 0;
     len = a->top + 1;
     auxvar = struct_init(initializer);
-    if (len <= 1)
-        return;
-    else if (len == 2)
-    {
-        if (a->array[a->top] > a->array[a->top - 1])
-            swap(a);
-        return;
-    }
-    else if (len == 3)
-    {
-        sort_three(a);
-        return;
-    }
     if (len <= 5)
         sort_small(a, b);
     else
