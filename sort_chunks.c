@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/03/28 11:30:04 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/01 12:03:48 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	find_chunks(t_list *a, t_list *b, l_list *s)
 		s->ck_min = s->min + (s->c * (s->max - s->min) / s->ck_count);
 		s->ck_max = s->min + ((s->c + 1) * (s->max - s->min) / s->ck_count);
 		s->elements_in_ck = 0;
+		s->i = 0;
 		while (s->i <= a->top)
 		{
 			if (a->array[s->i] >= s->ck_min && a->array[s->i] < s->ck_max)

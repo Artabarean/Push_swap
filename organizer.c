@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/31 13:04:23 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/01 12:05:31 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void sort_small(t_list *a, t_list *b)
     {
         smallest_pos = find_smallest_position(a);
         move_to_top(a, smallest_pos, 'a');
-        if (stack_is_sorted(a) == 0)
+        if (stack_is_sorted(a) == 1)
             return;
         push_to_b(a, b);
         i++;
@@ -69,7 +69,7 @@ void move_to_top(t_list *stack, int pos, char name)
     {
         while (pos != stack->top)
         {
-            rotate(stack, name);
+            reverse_rotate(stack, name);
             pos = (pos + 1) % len;
         }
     }
@@ -77,7 +77,7 @@ void move_to_top(t_list *stack, int pos, char name)
     {
         while (pos != stack->top)
         {
-            reverse_rotate(stack, name);
+            rotate(stack, name);
             pos = (pos - 1 + len) % len;
         }
     }

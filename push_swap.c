@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 11:37:56 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/01 12:20:39 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,15 @@ int stack_len(t_list *stack)
 {
     return (stack->top + 1);
 }
+#include <stdio.h>
 
 int push_swap(int argc, char **numbers, int count)
 {
     t_list *sa;
     t_list *sb;
+    int     i;
     
+    i = 0;
     sa = stack_init(count);
     sb = stack_init(count);
     if (!sa || !sb)
@@ -58,6 +61,11 @@ int push_swap(int argc, char **numbers, int count)
     }
     else
         write(1, "stack is already sorted\n", 25);
+    while (i < sa->top)
+    {
+        printf("%d\n", sa->array[i]);
+        i++;
+    }
     free_stack(sa);
     free_stack(sb);
     if (argc == 2)
