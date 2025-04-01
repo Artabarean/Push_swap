@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:45:59 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/28 11:07:55 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/01 13:02:48 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ void rotate_a(t_list *stack)
 
     i = 0;
     j = 0;
-    if (stack->top < 1)
+    if (stack->top <= 0)
         return;
     i = stack->top;
     bot_value = stack->array[0];
+    printf("%d!\n", bot_value);
     while (j < i)
     {
-        stack->array[j] = stack->array[i + 1];
+        stack->array[j] = stack->array[j + 1];
         j++;
     }
     stack->array[stack->top] = bot_value;
@@ -41,13 +42,13 @@ void rotate_b(t_list *stack)
 
     i = 0;
     j = 0;
-    if (stack->top < 1)
+    if (stack->top <= 0)
         return;
     i = stack->top;
     bot_value = stack->array[0];
     while (j < i)
     {
-        stack->array[j] = stack->array[i + 1];
+        stack->array[j] = stack->array[j + 1];
         j++;
     }
     stack->array[stack->top] = bot_value;
@@ -62,13 +63,13 @@ void rotate(t_list *stack, char name)
 
     i = 0;
     j = 0;
-    if (stack->top < 1)
+    if (stack->top <= 0)
         return;
     i = stack->top;
     bot_value = stack->array[0];
     while (j < i)
     {
-        stack->array[j] = stack->array[i + 1];
+        stack->array[j] = stack->array[j + 1];
         j++;
     }
     stack->array[stack->top] = bot_value;

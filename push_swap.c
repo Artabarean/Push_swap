@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 12:20:39 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/01 12:56:05 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int stack_is_sorted(t_list *stack)
     while (i < stack->top)
     {
         if (stack->array[i] > stack->array[i + 1])
-            return (0);
+            return (1);
 		i++;
     }
-    return (1);
+    return (0);
 }
 
 int stack_is_empty(t_list *stack)
@@ -35,7 +35,6 @@ int stack_len(t_list *stack)
 {
     return (stack->top + 1);
 }
-#include <stdio.h>
 
 int push_swap(int argc, char **numbers, int count)
 {
@@ -50,9 +49,9 @@ int push_swap(int argc, char **numbers, int count)
         return (free_stacks(sa, sb), 1);
     stack_init_from_strings(sa, numbers);
     sa->top = count - 1;
-    if (!stack_is_sorted(sa))
+    if (stack_is_sorted(sa) == 1)
     {
-        if (stack_len(sa) == 2 && sa->array[1] > sa->array[0])
+        if (stack_len(sa) == 2)
             swap_a(sa);
         else if (stack_len(sa) == 3)
             sort_three(sa);
@@ -61,7 +60,7 @@ int push_swap(int argc, char **numbers, int count)
     }
     else
         write(1, "stack is already sorted\n", 25);
-    while (i < sa->top)
+    while (i <= sa->top)
     {
         printf("%d\n", sa->array[i]);
         i++;

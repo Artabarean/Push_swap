@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 12:05:31 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/01 13:03:04 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void move_to_top(t_list *stack, int pos, char name)
     int len;
     
     len = stack->top + 1;
-    
     if (pos == stack->top)
         return;
     if (pos > len / 2)
@@ -95,13 +94,13 @@ void organizer(t_list *a, t_list *b)
     if (len <= 5)
     {  
         sort_small(a, b);
-        if (stack_is_sorted(a))
+        if (stack_is_sorted(a) == 0)
             return;
     }
     else
     {
         sort_chunks(a, b, auxvar);
-        if (stack_is_sorted(a))
+        if (stack_is_sorted(a) == 0)
             return;
     }
 }
