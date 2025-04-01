@@ -8,7 +8,7 @@
 typedef struct t_list
 {
 	int	*array;
-	int	size;
+    int size;
 	int	top;
 }  t_list;
 
@@ -41,7 +41,7 @@ t_list		*stack_init(int size);
 l_list      *struct_init(int initializer);
 int 		stack_pop(t_list *stack, int *value);
 int 		stack_push(t_list *stack, int value);
-void 		swap(t_list *stack);
+void 		swap_a(t_list *stack);
 int			stack_is_sorted(t_list *stack);
 int 		stack_is_empty(t_list *stack);
 int 		stack_len(t_list *stack);

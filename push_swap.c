@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/31 13:03:01 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/01 11:37:56 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,14 @@ int push_swap(int argc, char **numbers, int count)
     if (!stack_is_sorted(sa))
     {
         if (stack_len(sa) == 2 && sa->array[1] > sa->array[0])
-            swap(sa);
+            swap_a(sa);
         else if (stack_len(sa) == 3)
             sort_three(sa);
         else
             organizer(sa, sb);
     }
+    else
+        write(1, "stack is already sorted\n", 25);
     free_stack(sa);
     free_stack(sb);
     if (argc == 2)
