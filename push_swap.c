@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/02 12:31:41 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/02 12:54:32 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int push_swap(int argc, char **numbers, int count)
     stack_init_from_strings(sa, numbers);
     sa->top = count - 1;
     if (arguments_valid(sa->array, sa->top) == 1)
-        return (write(1, "Error: invalid arguments", 25), 1);
+        return (1);
     if (stack_is_sorted(sa) == 1)
     {
         if (stack_len(sa) == 2)
@@ -59,13 +59,6 @@ int push_swap(int argc, char **numbers, int count)
             sort_three(sa);
         else
             organizer(sa, sb);
-    }
-    else
-        write(1, "Stack is already sorted\n", 25);
-         while (i <= sa->top)
-    {
-        printf("%d-a\n", sa->array[i]);
-        i++;
     }
     if (argc == 2)
 		free(numbers);
