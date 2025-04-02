@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/02 12:42:52 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/02 13:13:57 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	find_min_max_median(t_list *stack, int *min, int *max, int *median)
 int find_min_value(t_list *stack)
 {
     int min = stack->array[0];
-    int i = 1;
+    int i;
+	
+	i = 1;
     while (i <= stack->top)
     {
         if (stack->array[i] < min)
@@ -55,7 +57,8 @@ int find_opt_pos_in_rng(t_list *stack, int min_val, int max_val)
 {
     int best_pos = -1;
     int best_cost = 2147483647;
-    int i, cost;
+    int i;
+	int	cost;
     int size = stack->top + 1;
     
     i = 0;
@@ -76,22 +79,19 @@ int find_opt_pos_in_rng(t_list *stack, int min_val, int max_val)
         }
         i++;
     }
-    return best_pos;
+    return (best_pos);
 }
 
 void sort_large(t_list *a, t_list *b, l_list *aux)
 {
     aux->ck_size = a->top + 1;
-	int	chunk_count;
-    int c;
-    
     find_min_max_median(a, &aux->min, &aux->max, &aux->median);
-    chunk_count = calculate_chunk_count(aux->ck_size);
-    c = 0;
-    while (c < chunk_count)
+    aux->ck_count = calculate_chunk_count(aux->ck_size);
+    aux->c = 0;
+    while (aux->c < aux->ck_count)
     {
-        aux->ck_min = aux->min + (c * (aux->max - aux->min) / chunk_count);
-        aux->ck_max = aux->min + ((c + 1) * (aux->max - aux->min) / chunk_count);
+        aux->ck_min = aux->min + (aux->c * (aux->max - aux->min) / aux->ck_count);
+        aux->ck_max = aux->min + ((aux->c + 1) * (aux->max - aux->min) / aux->ck_count);
         while (1)
         {
             aux->best_pos = find_opt_pos_in_rng(a, aux->ck_min, aux->ck_max);
@@ -100,7 +100,7 @@ void sort_large(t_list *a, t_list *b, l_list *aux)
             move_to_bot(a, aux->best_pos, 'a');
             push_to_b(a, b);
         }
-        c++;
+        aux->c++;
     }
     while (b->top >= 0)
     {

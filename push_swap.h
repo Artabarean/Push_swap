@@ -23,12 +23,9 @@ typedef struct l_list
     int     median;
     int     ck_min;
     int     ck_max;
-    int     elements_in_ck;
     int     pushed;
     int     best_pos;
-    int     largest_pos;
 	int     c;
-    int     i;
 }	l_list;
 
 int         find_min_value(t_list *stack);
