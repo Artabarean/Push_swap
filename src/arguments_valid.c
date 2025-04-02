@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   arguments_valid.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 11:14:14 by alex              #+#    #+#             */
-/*   Updated: 2025/03/28 10:28:05 by alex             ###   ########.fr       */
+/*   Created: 2025/04/02 09:28:08 by atabarea          #+#    #+#             */
+/*   Updated: 2025/04/02 10:18:58 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void free_stack(t_list *stack)
+int	arguments_valid(int	*array, int	top)
 {
-    if (stack)
-    {
-        if (stack->array)
-            free(stack->array);
-        free(stack);
-    }
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 0;
+	while (i < top)
+	{
+		j = i + 1;
+		while(j <= top)
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
+		i++; 
+	}
+	return (0);
 }

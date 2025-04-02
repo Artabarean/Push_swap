@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 13:03:04 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/02 12:01:20 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,25 @@
 
 void sort_small(t_list *a, t_list *b)
 {
-    int     len;
-    int     i;
-    int     smallest_pos;
+    int i;
+    int len;
+    int smallest_pos;
     
     len = a->top + 1;
     i = 0;
-    while (i < len - 3)
+    while (i < 2)
     {
         smallest_pos = find_smallest_position(a);
-        move_to_top(a, smallest_pos, 'a');
-        if (stack_is_sorted(a) == 1)
-            return;
+        move_to_bot(a, smallest_pos, 'a');
         push_to_b(a, b);
         i++;
     }
     sort_three(a);
     while (b->top >= 0)
         push_to_a(b, a);
+    reverse_rotate_a(a);
+    reverse_rotate_a(a);
+    swap_a(a);
 }
 
 int find_smallest_position(t_list *stack)
@@ -57,28 +58,24 @@ int find_smallest_position(t_list *stack)
     return (pos);
 }
 
-void move_to_top(t_list *stack, int pos, char name)
+void move_to_bot(t_list *stack, int pos, char name)
 {
     int len;
+    int target_value;
     
     len = stack->top + 1;
     if (pos == stack->top)
         return;
+    target_value = stack->array[pos];
     if (pos > len / 2)
     {
-        while (pos != stack->top)
-        {
+        while (stack->array[stack->top] != target_value)
             reverse_rotate(stack, name);
-            pos = (pos + 1) % len;
-        }
     }
     else
     {
-        while (pos != stack->top)
-        {
+        while (stack->array[stack->top] != target_value)
             rotate(stack, name);
-            pos = (pos - 1 + len) % len;
-        }
     }
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/01 12:03:48 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/02 11:00:12 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	find_chunks(t_list *a, t_list *b, l_list *s)
 			s->best_pos = find_next_in_range(a, s->ck_min, s->ck_max);
 			if (s->best_pos == -1)
 				break ;
-			move_to_top(a, s->best_pos, 'a');
+			move_to_bot(a, s->best_pos, 'a');
 			push_to_b(a, b);
 			s->pushed++;
 		}
@@ -117,7 +117,7 @@ void	sort_chunks(t_list *a, t_list *b, l_list *s)
 	while (b->top >= 0)
 	{
 		s->largest_pos = find_largest_position(b);
-		move_to_top(b, s->largest_pos, 'b');
+		move_to_bot(b, s->largest_pos, 'b');
 		push_to_a(b, a);
 	}
 }

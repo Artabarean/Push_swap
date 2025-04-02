@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:45:59 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 13:02:48 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/02 11:27:53 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void rotate_a(t_list *stack)
         return;
     i = stack->top;
     bot_value = stack->array[0];
-    printf("%d!\n", bot_value);
     while (j < i)
     {
         stack->array[j] = stack->array[j + 1];

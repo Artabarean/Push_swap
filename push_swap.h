@@ -31,7 +31,8 @@ typedef struct l_list
     int     i;
 }	l_list;
 
-void		free_stack(t_list *stack);
+int	        arguments_valid(int	*array, int	top);
+void	    sorter(t_list *a, int top, int mid, int bot);
 void        sort_three(t_list *a);
 void		free_stacks(t_list *sa, t_list *sb);
 void		push_to_a(t_list *src, t_list *dst);
@@ -43,6 +44,7 @@ l_list      *struct_init(int initializer);
 int 		stack_pop(t_list *stack, int *value);
 int 		stack_push(t_list *stack, int value);
 void 		swap_a(t_list *stack);
+void 		swap_b(t_list *stack);
 int			stack_is_sorted(t_list *stack);
 int 		stack_is_empty(t_list *stack);
 int 		stack_len(t_list *stack);
@@ -50,7 +52,7 @@ int 		push_swap(int argc, char **numbers, int count);
 void 		organizer(t_list *a, t_list *b);
 void 		sort_small(t_list *a, t_list *b);
 int 		find_smallest_position(t_list *stack);
-void 		move_to_top(t_list *stack, int pos, char name);
+void 		move_to_bot(t_list *stack, int pos, char name);
 void	    find_chunks(t_list *a, t_list *b, l_list *s);
 void 		sort_chunks(t_list *a, t_list *b, l_list *s);
 void 		find_min_max_median(t_list *stack, int *min, int *max, int *median);

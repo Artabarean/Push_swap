@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/01 12:56:05 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/02 10:03:02 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int push_swap(int argc, char **numbers, int count)
 {
     t_list *sa;
     t_list *sb;
-    int     i;
-    
+    int i;
+
     i = 0;
     sa = stack_init(count);
     sb = stack_init(count);
@@ -49,6 +49,8 @@ int push_swap(int argc, char **numbers, int count)
         return (free_stacks(sa, sb), 1);
     stack_init_from_strings(sa, numbers);
     sa->top = count - 1;
+    if (arguments_valid(sa->array, sa->top) == 1)
+        return (write(1, "Error: invalid arguments", 25), 1);
     if (stack_is_sorted(sa) == 1)
     {
         if (stack_len(sa) == 2)
@@ -59,17 +61,15 @@ int push_swap(int argc, char **numbers, int count)
             organizer(sa, sb);
     }
     else
-        write(1, "stack is already sorted\n", 25);
-    while (i <= sa->top)
+        write(1, "Stack is already sorted\n", 25);
+         while (i <= sa->top)
     {
         printf("%d\n", sa->array[i]);
         i++;
     }
-    free_stack(sa);
-    free_stack(sb);
     if (argc == 2)
 		free(numbers);
-    return (0);
+    return (free_stacks(sa, sb), 0);
 }
 
 int main(int argc, char *argv[])
