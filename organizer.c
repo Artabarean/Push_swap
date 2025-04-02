@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/02 12:01:20 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/02 12:24:27 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int find_smallest_position(t_list *stack)
     smallest = stack->array[0];
     pos = 0;
     i = 1;
-    
     while (i <= stack->top)
     {
         if (stack->array[i] < smallest)
@@ -54,8 +53,28 @@ int find_smallest_position(t_list *stack)
         }
         i++;
     }
-    
     return (pos);
+}
+
+int	find_largest_position(t_list *stack)
+{
+	int	largest;
+	int	pos;
+	int	i;
+
+	largest = stack->array[0];
+	pos = 0;
+	i = 1;
+	while (i <= stack->top)
+	{
+		if (stack->array[i] > largest)
+		{
+			largest = stack->array[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
 }
 
 void move_to_bot(t_list *stack, int pos, char name)
@@ -96,7 +115,7 @@ void organizer(t_list *a, t_list *b)
     }
     else
     {
-        sort_chunks(a, b, auxvar);
+        sort_large(a, b, auxvar);
         if (stack_is_sorted(a) == 0)
             return;
     }

@@ -31,6 +31,7 @@ typedef struct l_list
     int     i;
 }	l_list;
 
+int         find_min_value(t_list *stack);
 int	        arguments_valid(int	*array, int	top);
 void	    sorter(t_list *a, int top, int mid, int bot);
 void        sort_three(t_list *a);
@@ -53,11 +54,10 @@ void 		organizer(t_list *a, t_list *b);
 void 		sort_small(t_list *a, t_list *b);
 int 		find_smallest_position(t_list *stack);
 void 		move_to_bot(t_list *stack, int pos, char name);
-void	    find_chunks(t_list *a, t_list *b, l_list *s);
-void 		sort_chunks(t_list *a, t_list *b, l_list *s);
-void 		find_min_max_median(t_list *stack, int *min, int *max, int *median);
+int         calculate_chunk_count(int size);
+int         find_opt_pos_in_rng(t_list *stack, int min_val, int max_val);
+void        sort_large(t_list *a, t_list *b, l_list *aux);
 int 		find_largest_position(t_list *stack);
-int 		find_next_in_range(t_list *stack, int min_val, int max_val);
 char	    **ft_split(char const *s, char c);
 int	        ft_atoi(const char *nptr);
 void        *ft_calloc(size_t nmemb, size_t size);
@@ -67,5 +67,6 @@ void        rotate_a(t_list *stack);
 void        reverse_rotate_b(t_list *stack);
 void        reverse_rotate_a(t_list *stack);
 void		push_to_b(t_list *src, t_list *dst);
+void	    find_min_max_median(t_list *stack, int *min, int *max, int *median);
 
 #endif
