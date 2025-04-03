@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 13:54:09 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:41:51 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ void sort_small(t_list *a, t_list *b)
     sort_three(a);
     while (b->top >= 0)
         push_to_a(b, a);
-    reverse_rotate_a(a);
-    reverse_rotate_a(a);
-    swap_a(a);
 }
 
 int find_smallest_position(t_list *stack)
