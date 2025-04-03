@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_valid.c                                  :+:      :+:    :+:   */
+/*   char_search.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 09:28:08 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 10:11:26 by atabarea         ###   ########.fr       */
+/*   Created: 2025/04/03 10:11:42 by atabarea          #+#    #+#             */
+/*   Updated: 2025/04/03 10:49:05 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	arguments_valid(int	*array, int	top)
+int	char_search(char **numbers)
 {
 	int	i;
 	int	j;
 	
 	j = 0;
 	i = 0;
-	while (i < top)
+	while (numbers[i])
 	{
-		j = i + 1;
-		while(j <= top)
+		while(numbers[i][j])
 		{
-			if (array[i] == array[j])
-				return (1);
+			if (ft_isdigit(numbers[i][j]) == 0)
+			{
+				if (numbers[i][j] != '-')
+					return (1);
+				if (numbers[i][j] == '-' && ft_isdigit(numbers[i][j + 1]) == 0)
+					return (1);
+			}
 			j++;
 		}
-		i++; 
+		j = 0;
+		i++;
 	}
 	return (0);
 }

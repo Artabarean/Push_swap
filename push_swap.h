@@ -28,6 +28,8 @@ typedef struct l_list
 	int     c;
 }	l_list;
 
+int         ft_isdigit(int c);
+int	        char_search(char **numbers);
 int         find_min_value(t_list *stack);
 int	        arguments_valid(int	*array, int	top);
 void	    sorter(t_list *a, int top, int mid, int bot);

@@ -1,34 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_valid.c                                  :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 09:28:08 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 10:11:26 by atabarea         ###   ########.fr       */
+/*   Created: 2025/01/27 10:21:39 by atabarea          #+#    #+#             */
+/*   Updated: 2025/04/03 10:45:30 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	arguments_valid(int	*array, int	top)
+int	ft_isdigit(int c)
 {
-	int	i;
-	int	j;
-	
-	j = 0;
-	i = 0;
-	while (i < top)
-	{
-		j = i + 1;
-		while(j <= top)
-		{
-			if (array[i] == array[j])
-				return (1);
-			j++;
-		}
-		i++; 
-	}
-	return (0);
+	if (c >= 48 && c <= 57)
+		return (1);
+	else
+		return (0);
 }
