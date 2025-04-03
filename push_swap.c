@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 10:50:32 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 12:21:44 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int push_swap(int argc, char **numbers, int count)
     stack_init_from_strings(sa, numbers);
     sa->top = count - 1;
     if (arguments_valid(sa->array, sa->top) == 1)
-        return (write(2, "Error\n", 6), 1);
+        return (write(2, "Error2\n", 7), 1);
     if (stack_is_sorted(sa) == 1)
     {
         if (stack_len(sa) == 2)
@@ -60,12 +60,12 @@ int push_swap(int argc, char **numbers, int count)
         else
             organizer(sa, sb);
     }
-    // while (i <= sa->top)
-    // {
-    //     printf("%d, ", sa->array[i]);
-    //     i++;
-    // }
-    // printf("\n");
+    while (i <= sa->top)
+    {
+        printf("%d, ", sa->array[i]);
+        i++;
+    }
+    printf("\n");
     if (argc == 2)
 		free(numbers);
     return (free_stacks(sa, sb), 0);
@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
     else
         numbers = &argv[1];
     if (char_search(numbers) == 1)
-        return (write(2, "Error\n", 6));
+        return (write(2, "Error1\n", 7));
     count = 0;
     while (numbers[count])
         count++;
