@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 10:41:14 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 10:50:32 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,8 @@ int main(int argc, char *argv[])
         numbers = ft_split(argv[1], ' ');
     else
         numbers = &argv[1];
-    // if (char_search(numbers) == 1)
-    //     return (write(2, "Error\n", 6));
+    if (char_search(numbers) == 1)
+        return (write(2, "Error\n", 6));
     count = 0;
     while (numbers[count])
         count++;
