@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 13:26:34 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:54:09 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,28 +80,25 @@ int	find_largest_position(t_list *stack)
 void move_to_bot(t_list *stack, int pos, char name)
 {
     int len;
-    int target_value;
-    
+
     len = stack->top + 1;
-    if (pos == stack->top)
+    if (pos == 0)
         return;
-    target_value = stack->array[pos];
+
     if (pos > len / 2)
     {
-        while (stack->array[stack->top] != target_value)
+        while (pos != 0 && stack->top >= 0)
         {
             reverse_rotate(stack, name);
-            if (stack->top < 0)
-                break;
+            pos = (pos + 1) % len;
         }
     }
     else
     {
-        while (stack->array[stack->top] != target_value)
+        while (pos != 0 && stack->top >= 0)
         {
             rotate(stack, name);
-            if (stack->top < 0)
-                break;
+            pos = (pos - 1 + len) % len;
         }
     }
 }

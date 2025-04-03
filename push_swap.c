@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 13:28:37 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 14:02:27 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,13 @@ int push_swap(int argc, char **numbers, int count)
         return (free_stacks(sa, sb), 1);
     stack_init_from_strings(sa, numbers);
     sa->top = count - 1;
+    while (i <= sa->top)
+    {
+        printf("%d, ", sa->array[i]);
+        i++;
+    }
+    printf("\n");
+    i = 0;
     if (arguments_valid(sa->array, sa->top) == 1)
         return (write(2, "Error2\n", 7), 1);
     if (stack_is_sorted(sa) == 1)
