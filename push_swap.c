@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 11:30:19 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 12:21:44 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:28:37 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int stack_is_sorted(t_list *stack)
 	int	i;
 
 	i = 0;
+    if (stack->top <= 0)
+        return (0);
     while (i < stack->top)
     {
         if (stack->array[i] > stack->array[i + 1])

@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/02 12:24:27 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:26:34 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,20 @@ void move_to_bot(t_list *stack, int pos, char name)
     if (pos > len / 2)
     {
         while (stack->array[stack->top] != target_value)
+        {
             reverse_rotate(stack, name);
+            if (stack->top < 0)
+                break;
+        }
     }
     else
     {
         while (stack->array[stack->top] != target_value)
+        {
             rotate(stack, name);
+            if (stack->top < 0)
+                break;
+        }
     }
 }
 
@@ -107,16 +115,15 @@ void organizer(t_list *a, t_list *b)
     initializer = 0;
     len = a->top + 1;
     auxvar = struct_init(initializer);
+    if (!auxvar)
+        return;
     if (len <= 5)
     {  
         sort_small(a, b);
-        if (stack_is_sorted(a) == 0)
-            return;
     }
     else
     {
         sort_large(a, b, auxvar);
-        if (stack_is_sorted(a) == 0)
-            return;
     }
+    free(auxvar);
 }

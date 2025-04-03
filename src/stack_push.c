@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:02:45 by alex              #+#    #+#             */
-/*   Updated: 2025/04/03 12:43:13 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/03 13:20:38 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void stack_push(t_list *stack, int value)
 {
     int i;
-    
-    i = stack->top;
+
     if (stack->top >= stack->size - 1)
         return;
+    i = stack->top;
     while (i >= 0)
     {
         stack->array[i + 1] = stack->array[i];
