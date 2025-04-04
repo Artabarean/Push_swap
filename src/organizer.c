@@ -3,22 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   organizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 14:41:51 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/04 13:15:29 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void sort_small(t_list *a, t_list *b)
 {
     int i;
-    int len;
     int smallest_pos;
     
-    len = a->top + 1;
     i = 0;
     while (i < 2)
     {
@@ -53,25 +51,27 @@ int find_smallest_position(t_list *stack)
     return (pos);
 }
 
-int	find_largest_position(t_list *stack)
+int find_largest_position(t_list *stack)
 {
-	int	largest;
-	int	pos;
-	int	i;
-
-	largest = stack->array[0];
-	pos = 0;
-	i = 1;
-	while (i <= stack->top)
-	{
-		if (stack->array[i] > largest)
-		{
-			largest = stack->array[i];
-			pos = i;
-		}
-		i++;
-	}
-	return (pos);
+    int largest;
+    int pos;
+    int i;
+    
+    if (stack->top < 0)
+        return (-1);
+    largest = stack->array[0];
+    pos = 0;
+    i = 1;
+    while (i <= stack->top)
+    {
+        if (stack->array[i] > largest)
+        {
+            largest = stack->array[i];
+            pos = i;
+        }
+        i++;
+    }
+    return (pos);
 }
 
 void move_to_bot(t_list *stack, int pos, char name)

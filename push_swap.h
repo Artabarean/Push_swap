@@ -16,7 +16,7 @@ typedef struct t_list
 typedef struct l_list
 {
 	int     len;
-    int     ck_count;
+    int     ck_ct;
     int     ck_size;
     int     min;
     int     max;
@@ -26,8 +26,18 @@ typedef struct l_list
     int     pushed;
     int     best_pos;
 	int     c;
+    int     i;
+    int     min_pos;
+    int     best_cost;
 }	l_list;
 
+int         has_value_in_range(t_list *stack, int min_val, int max_val);
+void        initialize_chunk(t_list *a, l_list *aux);
+void        process_chunk_elements(t_list *a, t_list *b, l_list *aux);
+void        determine_chunk_boundaries(l_list *aux);
+void        process_single_element(t_list *a, t_list *b, l_list *aux);
+void        push_elements_back_to_a(t_list *a, t_list *b, l_list *aux);
+void        finalize_sort(t_list *a, l_list *aux);
 int         ft_isdigit(int c);
 int	        char_search(char **numbers);
 int         find_min_value(t_list *stack);
@@ -54,7 +64,7 @@ void 		sort_small(t_list *a, t_list *b);
 int 		find_smallest_position(t_list *stack);
 void 		move_to_bot(t_list *stack, int pos, char name);
 int         calculate_chunk_count(int size);
-int         find_opt_pos_in_rng(t_list *stack, int min_val, int max_val);
+int         opt_pos_in_rng(t_list *stack, int min_val, int max_val, l_list *aux);
 void        sort_large(t_list *a, t_list *b, l_list *aux);
 int 		find_largest_position(t_list *stack);
 char	    **ft_split(char const *s, char c);
