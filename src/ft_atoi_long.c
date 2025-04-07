@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:24:43 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 13:52:18 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/07 21:31:48 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+long	ft_remove_zeros(long *result)
+{
+	
+}
 
 long	ft_atoi_long(const char *nptr)
 {
