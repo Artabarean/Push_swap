@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_to.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 18:19:50 by alex              #+#    #+#             */
-/*   Updated: 2025/04/04 12:48:32 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/07 14:00:35 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void push_to_a(t_list *src, t_list *dst)
 {
-    int value;
+    long value;
     
     if (stack_is_empty(src))
         return;
@@ -25,7 +25,7 @@ void push_to_a(t_list *src, t_list *dst)
 
 void push_to_b(t_list *src, t_list *dst)
 {
-    int value;
+    long value;
     
     if (stack_is_empty(src))
         return;

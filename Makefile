@@ -6,7 +6,7 @@
 #    By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/13 09:24:28 by atabarea          #+#    #+#              #
-#    Updated: 2025/04/07 10:50:46 by atabarea         ###   ########.fr        #
+#    Updated: 2025/04/07 13:23:21 by atabarea         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = push_swap.c ./src/organizer.c ./src/sort_chunks.c ./src/arguments_valid.c\
 	./src/stack_push.c ./src/swap.c ./src/sort_three.c ./src/char_search.c\
 	./src/ft_atoi_long.c ./src/ft_split.c ./src/ft_calloc.c ./src/find_max_median.c\
 	./src/ft_bzero.c ./src/struct_init.c ./src/ft_isdigit.c\
-	./src/chunk_algorithm.c ./src/check_args.c
+	./src/chunk_algorithm.c ./src/check_max_min.c
 OBJ = $(SRC:.c=.o)
 INCLUDE = push_swap.h
 all: $(NAME)

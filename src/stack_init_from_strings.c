@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:19:18 by alex              #+#    #+#             */
-/*   Updated: 2025/04/07 10:33:22 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/07 14:00:50 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void stack_init_from_strings(t_list *stack, char **strings)
 {
     int i;
-    int value;
+    long value;
     
     value = 0;
     i = 0;

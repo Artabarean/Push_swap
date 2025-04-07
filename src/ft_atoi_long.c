@@ -6,15 +6,15 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:24:43 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 11:26:38 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/07 13:52:18 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi_long(const char *nptr)
+long	ft_atoi_long(const char *nptr)
 {
-	int		i;
+ 	int		i;
 	long	result;
 	long	sign;
 

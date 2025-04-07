@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stack_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:02:45 by alex              #+#    #+#             */
-/*   Updated: 2025/04/04 13:21:43 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/07 14:00:15 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void stack_push(t_list *stack, int value)
+void stack_push(t_list *stack, long value)
 {
     int i;
 
