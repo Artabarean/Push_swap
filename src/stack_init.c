@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 10:17:47 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/03 13:56:40 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/07 11:27:59 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list  *stack_init(int size)
     t_list *stack = (t_list *)malloc(sizeof(t_list));
     if (!stack)
         return (NULL);
-    stack->array = (int *)malloc(sizeof(int) * size);
+    stack->array = (long *)malloc(sizeof(long) * size);
     if (!stack->array)
     {
         free(stack);

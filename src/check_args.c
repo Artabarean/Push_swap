@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_valid.c                                  :+:      :+:    :+:   */
+/*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/02 09:28:08 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 11:27:00 by atabarea         ###   ########.fr       */
+/*   Created: 2025/04/07 09:43:26 by atabarea          #+#    #+#             */
+/*   Updated: 2025/04/07 11:35:43 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	arguments_valid(long *array, int top)
+int	check_args(long *nums, int top)
 {
 	int	i;
-	int	j;
 	
-	j = 0;
 	i = 0;
-	while (i < top)
+	while (i <= top)
 	{
-		j = i + 1;
-		while(j <= top)
+		if (nums[i] > INT_MAX || nums[i] < INT_MIN)
 		{
-			if (array[i] == array[j])
-				return (1);
-			j++;
+			printf("e");
+			return (1);
 		}
-		i++; 
+		i++;
 	}
 	return (0);
 }

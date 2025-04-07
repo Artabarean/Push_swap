@@ -5,12 +5,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <limits.h>
 
 typedef struct t_list
 {
-	int	*array;
-    int size;
-	int	top;
+	long	*array;
+    int     size;
+	int     top;
 }  t_list;
 
 typedef struct l_list
@@ -31,6 +32,7 @@ typedef struct l_list
     int     best_cost;
 }	l_list;
 
+int	        check_args(long *nums, int top);
 int         has_value_in_range(t_list *stack, int min_val, int max_val);
 void        initialize_chunk(t_list *a, l_list *aux);
 void        process_chunk_elements(t_list *a, t_list *b, l_list *aux);
@@ -41,7 +43,7 @@ void        finalize_sort(t_list *a, l_list *aux);
 int         ft_isdigit(int c);
 int	        char_search(char **numbers);
 int         find_min_value(t_list *stack);
-int	        arguments_valid(int	*array, int	top);
+int	        arguments_valid(long *array, int top);
 void	    sorter(t_list *a, int top, int mid, int bot);
 void        sort_three(t_list *a);
 void		free_stacks(t_list *sa, t_list *sb);
@@ -68,7 +70,6 @@ int         opt_pos_in_rng(t_list *stack, int min_val, int max_val, l_list *aux)
 void        sort_large(t_list *a, t_list *b, l_list *aux);
 int 		find_largest_position(t_list *stack);
 char	    **ft_split(char const *s, char c);
-int	        ft_atoi(const char *nptr);
 void        *ft_calloc(size_t nmemb, size_t size);
 void	    ft_bzero(void *s, size_t n);
 void        rotate_b(t_list *stack);
@@ -77,5 +78,6 @@ void        reverse_rotate_b(t_list *stack);
 void        reverse_rotate_a(t_list *stack);
 void		push_to_b(t_list *src, t_list *dst);
 void	    find_min_max_median(t_list *stack, int *min, int *max, int *median);
+int	        ft_atoi_long(const char *nptr);
 
 #endif
