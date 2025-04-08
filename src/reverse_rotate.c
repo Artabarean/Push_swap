@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 11:40:04 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/31 11:30:42 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:34:27 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	reverse_rotate_a(t_list *stack)
 	int	i;
 	int	last_value;
 
-	i = 0; 
+	i = 0;
 	if (stack->top < 1)
 		return ;
 	i = stack->top;

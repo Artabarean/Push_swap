@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 10:21:09 by atabarea          #+#    #+#             */
-/*   Updated: 2025/03/28 10:28:44 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/08 12:33:47 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	ft_bzero(void *s, size_t n)
 {
 	size_t			i;
 	unsigned char	*ptr;
-	
-	ptr = s;	
+
+	ptr = s;
 	i = 0;
-	while(i < n)
+	while (i < n)
 	{
 		ptr[i] = '\0';
 		i++;

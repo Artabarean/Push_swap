@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 12:00:42 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 11:40:42 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:33:31 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ void	find_min_max_median(t_list *stack, int *min, int *max, int *median)
 	*median = (*min + *max) / 2;
 }
 
-int find_min_value(t_list *stack)
+int	find_min_value(t_list *stack)
 {
-    int min = stack->array[0];
-    int i;
-	
+	int	min;
+	int	i;
+
+	min = stack->array[0];
 	i = 1;
-    while (i <= stack->top)
-    {
-        if (stack->array[i] < min)
-            min = stack->array[i];
-        i++;
-    }
-    return (min);
+	while (i <= stack->top)
+	{
+		if (stack->array[i] < min)
+			min = stack->array[i];
+		i++;
+	}
+	return (min);
 }

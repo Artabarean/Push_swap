@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/02 09:28:08 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 11:27:00 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:32:59 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@ int	arguments_valid(long *array, int top)
 {
 	int	i;
 	int	j;
-	
+
 	j = 0;
 	i = 0;
 	while (i < top)
 	{
 		j = i + 1;
-		while(j <= top)
+		while (j <= top)
 		{
 			if (array[i] == array[j])
 				return (1);
 			j++;
 		}
-		i++; 
+		i++;
 	}
 	return (0);
 }
