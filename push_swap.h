@@ -39,7 +39,7 @@ char        *ft_remove_zeros(char *result);
 int	        check_max_min(long *nums, int top);
 int         has_value_in_range(t_list *stack, int min_val, int max_val);
 void        initialize_chunk(t_list *a, l_list *aux);
-void        process_chunk_elements(t_list *a, t_list *b, l_list *aux);
+void        process_chunk_elements_optimized(t_list *a, t_list *b, l_list *aux);
 void        determine_chunk_boundaries(l_list *aux);
 void        process_single_element(t_list *a, t_list *b, l_list *aux);
 void        push_elements_back_to_a(t_list *a, t_list *b, l_list *aux);
@@ -66,7 +66,7 @@ int 		stack_is_empty(t_list *stack);
 int 		stack_len(t_list *stack);
 int 		push_swap(int argc, char **numbers, int count);
 void 		organizer(t_list *a, t_list *b);
-void 		sort_small(t_list *a, t_list *b);
+void        sort_small(t_list *a, t_list *b);
 int 		find_smallest_position(t_list *stack);
 void 		move_to_bot(t_list *stack, int pos, char name);
 int         calculate_chunk_count(int size);
@@ -83,5 +83,7 @@ void        reverse_rotate_a(t_list *stack);
 void		push_to_b(t_list *src, t_list *dst);
 void	    find_min_max_median(t_list *stack, int *min, int *max, int *median);
 long        ft_atoi_long(char *nptr);
+void        optimize_small_groups(t_list *a, t_list *b);
+void        sort_four(t_list *a, t_list *b);
 
 #endif

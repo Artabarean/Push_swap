@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 13:10:19 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 11:46:30 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:07:05 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,13 @@ void sort_large(t_list *a, t_list *b, l_list *aux)
     int stack_size;
 
     stack_size = a->top + 1;
-    
     initialize_chunk(a, aux);
     chunk_count = aux->ck_ct;
     c_val = aux->c;
     chunk_continue = (c_val < chunk_count);
     while (chunk_continue)
     {
-        process_chunk_elements(a, b, aux);
+        process_chunk_elements_optimized(a, b, aux);
         c_val = aux->c;
         aux->c = c_val + 1;
         chunk_count = aux->ck_ct;

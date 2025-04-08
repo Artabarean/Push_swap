@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 09:43:26 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 14:12:51 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 11:55:49 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ int	check_max_min(long *nums, int top)
 	while (i <= top)
 	{
 		if (nums[i] > INT_MAX || nums[i] <= INT_MIN)
-		{
 			return (1);
-		}
 		i++;
 	}
 	return (0);

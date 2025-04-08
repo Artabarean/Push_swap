@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 11:11:41 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:16:38 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,19 @@ void    initialize_chunk(t_list *a, l_list *aux)
     aux->c = 0;
 }
 
-void    process_chunk_elements(t_list *a, t_list *b, l_list *aux)
+void process_chunk_elements_optimized(t_list *a, t_list *b, l_list *aux)
 {
     int has_value;
+    int size_a;
 
     determine_chunk_boundaries(aux);
     has_value = has_value_in_range(a, aux->ck_min, aux->ck_max);
+    size_a = a->top + 1;
+    if (size_a <= 5 && !has_value_in_range(a, aux->ck_min, aux->max))
+    {
+       optimize_small_groups(a, b);
+        return;
+    }
     while (has_value)
     {
         process_single_element(a, b, aux);

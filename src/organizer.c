@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   organizer.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/04 13:15:29 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/08 12:29:59 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int find_largest_position(t_list *stack)
 void move_to_bot(t_list *stack, int pos, char name)
 {
     int len;
+    int moves;
 
     len = stack->top + 1;
     if (pos == 0)
@@ -84,18 +85,20 @@ void move_to_bot(t_list *stack, int pos, char name)
 
     if (pos > len / 2)
     {
-        while (pos != 0 && stack->top >= 0)
+        moves = len - pos;
+        while (moves > 0 && stack->top >= 0)
         {
             reverse_rotate(stack, name);
-            pos = (pos + 1) % len;
+            moves--;
         }
     }
     else
     {
-        while (pos != 0 && stack->top >= 0)
+        moves = pos;
+        while (moves > 0 && stack->top >= 0)
         {
             rotate(stack, name);
-            pos = (pos - 1 + len) % len;
+            moves--;
         }
     }
 }
@@ -111,13 +114,11 @@ void organizer(t_list *a, t_list *b)
     auxvar = struct_init(initializer);
     if (!auxvar)
         return;
-    if (len <= 5)
-    {  
+    if (len == 4)
+        sort_four(a, b);
+    if (len == 5)
         sort_small(a, b);
-    }
     else
-    {
         sort_large(a, b, auxvar);
-    }
     free(auxvar);
 }

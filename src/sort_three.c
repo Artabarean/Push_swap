@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 11:14:54 by alex              #+#    #+#             */
-/*   Updated: 2025/04/03 11:21:07 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:28:11 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,42 @@ void	sorter(t_list *a, int top, int mid, int bot)
         rotate_a(a);
         swap_a(a);
     }
+}
+
+void optimize_small_groups(t_list *a, t_list *b)
+{
+    int size_a = a->top + 1;
+    
+    if (size_a == 3)
+    {
+        sort_three(a);
+        return;
+    }
+    if (size_a == 2 && a->array[0] > a->array[1])
+        swap_a(a);
+    if (size_a <= 5)
+    {
+        int min_pos = find_smallest_position(a);
+        if (min_pos != 0)
+        {
+            move_to_bot(a, min_pos, 'a');
+        }
+        push_to_b(a, b);
+        if (a->top + 1 == 3)
+        {
+            sort_three(a);
+        }
+        push_to_a(b, a);
+    }
+}
+
+void sort_four(t_list *a, t_list *b)
+{
+    int smallest_pos;
+
+    smallest_pos = find_smallest_position(a);
+    move_to_bot(a, smallest_pos, 'a');
+    push_to_b(a, b);
+    sort_three(a);
+    push_to_a(b, a);
 }
