@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_chunks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/04 13:24:22 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/08 10:15:49 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,21 @@
 int calculate_chunk_count(int size)
 {
     if (size <= 100)
-        return (5);
+    {
+        if (size <= 20)
+            return 2;
+        else if (size <= 50)
+            return 3;
+        else
+            return 5;
+    }
     else
-        return (11);
+    {
+        if (size <= 250)
+            return 8;
+        else
+            return 11;
+    }
 }
 
 int has_value_in_range(t_list *stack, int min_val, int max_val)

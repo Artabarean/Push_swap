@@ -3,21 +3,44 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 10:24:43 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/07 21:31:48 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/08 09:46:30 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-long	ft_remove_zeros(long *result)
+char	*ft_remove_zeros(char *result)
 {
-	
+	int	negative;
+
+	negative = 0;
+	if (!result || !*result)
+		return (NULL);
+	if ('-' == *result)
+	{
+		negative = 1;
+		result++;
+	}
+	if ('+' == *result)
+		result++;
+	if (!*result)
+		return (write(2, "Error\n", 6), result);;
+	while ('0' == *result && *(result + 1))
+		result++;
+	if (ft_strlen(result) > 19)
+		return (write(2, "Error\n", 6), result);
+	if (*result && negative)
+	{
+		*(result - 1) = '-';
+		result--;
+	}
+	return (result);
 }
 
-long	ft_atoi_long(const char *nptr)
+long	ft_atoi_long(char *nptr)
 {
  	int		i;
 	long	result;
@@ -25,6 +48,7 @@ long	ft_atoi_long(const char *nptr)
 
 	result = 0;
 	sign = 1;
+	nptr = ft_remove_zeros(nptr);
 	i = 0;
 	while (nptr[i] == ' ' || nptr[i] == '\t' || nptr[i] == '\n'
 		|| nptr[i] == '\r' || nptr[i] == '\v' || nptr[i] == '\f')
@@ -35,9 +59,7 @@ long	ft_atoi_long(const char *nptr)
 		i++;
 	}
 	else if (nptr[i] == '+')
-	{
 		i++;
-	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');

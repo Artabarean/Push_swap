@@ -7,6 +7,7 @@
 # include <stdio.h>
 # include <limits.h>
 # include <ctype.h>
+# include <stdlib.h>
 
 typedef struct t_list
 {
@@ -33,6 +34,8 @@ typedef struct l_list
     int     best_cost;
 }	l_list;
 
+size_t	    ft_strlen(char *s);
+char        *ft_remove_zeros(char *result);
 int	        check_max_min(long *nums, int top);
 int         has_value_in_range(t_list *stack, int min_val, int max_val);
 void        initialize_chunk(t_list *a, l_list *aux);
@@ -79,6 +82,6 @@ void        reverse_rotate_b(t_list *stack);
 void        reverse_rotate_a(t_list *stack);
 void		push_to_b(t_list *src, t_list *dst);
 void	    find_min_max_median(t_list *stack, int *min, int *max, int *median);
-long        ft_atoi_long(const char *nptr);
+long        ft_atoi_long(char *nptr);
 
 #endif
