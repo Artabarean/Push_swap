@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 10:15:49 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 11:11:41 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int calculate_chunk_count(int size)
     if (size <= 100)
     {
         if (size <= 20)
-            return 2;
+            return (2);
         else if (size <= 50)
-            return 3;
+            return (3);
         else
-            return 5;
+            return (5);
     }
     else
     {
-        if (size <= 250)
-            return 8;
+        if (size <= 300)
+            return (11);
         else
-            return 11;
+            return (13);
     }
 }
 
@@ -75,7 +75,7 @@ int opt_pos_in_rng(t_list *stk, int mn_v, int mx_v, l_list *aux)
     return (aux->best_pos);
 }
 
-void initialize_chunk(t_list *a, l_list *aux)
+void    initialize_chunk(t_list *a, l_list *aux)
 {
     int stack_size;
 
@@ -86,7 +86,7 @@ void initialize_chunk(t_list *a, l_list *aux)
     aux->c = 0;
 }
 
-void process_chunk_elements(t_list *a, t_list *b, l_list *aux)
+void    process_chunk_elements(t_list *a, t_list *b, l_list *aux)
 {
     int has_value;
 

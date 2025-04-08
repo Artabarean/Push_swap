@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chunk_algorithm.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/04 13:10:19 by alex              #+#    #+#             */
-/*   Updated: 2025/04/04 13:17:31 by alex             ###   ########.fr       */
+/*   Updated: 2025/04/08 11:46:30 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,33 @@ void determine_chunk_boundaries(l_list *aux)
 
 void process_single_element(t_list *a, t_list *b, l_list *aux)
 {
-    int best_pos;
-
-    best_pos = opt_pos_in_rng(a, aux->ck_min, aux->ck_max, aux);
-    aux->best_pos = best_pos;
-    if (best_pos == -1)
-    {
+    int size_a;
+    int stack_index;
+    
+    aux->best_pos = opt_pos_in_rng(a, aux->ck_min, aux->ck_max, aux);
+    if (aux->best_pos == -1)
         return;
-    }
-
-    if (best_pos != 0)
+    size_a = a->top + 1;
+    if (aux->best_pos != 0)
     {
-        move_to_bot(a, best_pos, 'a');
+        if (aux->best_pos <= size_a / 2)
+        {
+            stack_index = 0;
+            while (stack_index < aux->best_pos)
+            {
+                rotate_a(a);
+                stack_index++;
+            }
+        }
+        else
+        {
+            stack_index = 0;
+            while (stack_index < size_a - aux->best_pos)
+            {
+                reverse_rotate_a(a);
+                stack_index++;
+            }
+        }
     }
     push_to_b(a, b);
 }
@@ -71,9 +86,7 @@ void finalize_sort(t_list *a, l_list *aux)
     min_pos = find_smallest_position(a);
     aux->min_pos = min_pos;
     if (min_pos != 0)
-    {
         move_to_bot(a, min_pos, 'a');
-    }
 }
 
 void sort_large(t_list *a, t_list *b, l_list *aux)
@@ -81,7 +94,10 @@ void sort_large(t_list *a, t_list *b, l_list *aux)
     int chunk_continue;
     int chunk_count;
     int c_val;
+    int stack_size;
 
+    stack_size = a->top + 1;
+    
     initialize_chunk(a, aux);
     chunk_count = aux->ck_ct;
     c_val = aux->c;
