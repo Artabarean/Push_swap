@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:01:57 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 12:34:36 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 12:54:51 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	calculate_chunk_count(int size)
 		else if (size <= 50)
 			return (3);
 		else
-			return (5);
+			return (6);
 	}
 	else
 	{
-		if (size <= 300)
+		if (size <= 200)
 			return (11);
 		else
 			return (13);
@@ -46,7 +46,7 @@ int	has_value_in_range(t_list *stack, int min_val, int max_val)
 	return (0);
 }
 
-int	opt_pos_in_rng(t_list *stk, int mn_v, int mx_v, l_list *aux)
+int	opt_pos_in_rng(t_list *stk, int mn_v, int mx_v, t_lst *aux)
 {
 	int	cost;
 	int	size;
@@ -74,7 +74,7 @@ int	opt_pos_in_rng(t_list *stk, int mn_v, int mx_v, l_list *aux)
 	return (aux->best_pos);
 }
 
-void	initialize_chunk(t_list *a, l_list *aux)
+void	initialize_chunk(t_list *a, t_lst *aux)
 {
 	int	stack_size;
 
@@ -85,7 +85,7 @@ void	initialize_chunk(t_list *a, l_list *aux)
 	aux->c = 0;
 }
 
-void	process_chunk_elements_optimized(t_list *a, t_list *b, l_list *aux)
+void	process_chunk_elements_optimized(t_list *a, t_list *b, t_lst *aux)
 {
 	int	has_value;
 	int	size_a;

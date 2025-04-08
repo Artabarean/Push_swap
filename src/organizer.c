@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 09:26:28 by atabarea          #+#    #+#             */
-/*   Updated: 2025/04/08 12:34:17 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 13:10:34 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void	move_to_bot(t_list *stack, int pos, char name)
 
 void	organizer(t_list *a, t_list *b)
 {
-	l_list	*auxvar;
+	t_lst	*auxvar;
 	int		len;
 	int		initializer;
 

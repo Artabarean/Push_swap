@@ -6,17 +6,17 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 11:24:38 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 12:35:08 by atabarea         ###   ########.fr       */
+/*   Updated: 2025/04/08 13:08:53 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-l_list	*struct_init(int initializer)
+t_lst	*struct_init(int initializer)
 {
-	l_list	*auxvar;
+	t_lst	*auxvar;
 
-	auxvar = (l_list *)malloc(sizeof(l_list));
+	auxvar = (t_lst *)malloc(sizeof(t_lst));
 	if (!auxvar)
 		return (NULL);
 	auxvar->len = initializer;
@@ -33,5 +33,7 @@ l_list	*struct_init(int initializer)
 	auxvar->i = initializer;
 	auxvar->min_pos = initializer;
 	auxvar->best_cost = initializer;
+	auxvar->stack_indx = initializer;
+	auxvar->size_a = initializer;
 	return (auxvar);
 }

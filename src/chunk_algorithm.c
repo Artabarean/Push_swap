@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/04 13:10:19 by alex              #+#    #+#             */
-/*   Updated: 2025/04/08 12:38:46 by atabarea         ###   ########.fr       */
+/*   Created: 2025/04/08 12:59:10 by atabarea          #+#    #+#             */
+/*   Updated: 2025/04/08 13:09:12 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	determine_chunk_boundaries(l_list *aux)
+void	determine_chunk_boundaries(t_lst *aux)
 {
 	int	chunk_count;
 	int	min_val;
@@ -27,35 +27,36 @@ void	determine_chunk_boundaries(l_list *aux)
 	aux->ck_max = min_val + ((c_val + 1) * (max_val - min_val) / chunk_count);
 }
 
-void	process_single_element(t_list *a, t_list *b, l_list *aux)
+void	process_single_element(t_list *a, t_list *b, t_lst *aux)
 {
-	int	size_a;
-	int	stack_index;
-
 	aux->best_pos = opt_pos_in_rng(a, aux->ck_min, aux->ck_max, aux);
 	if (aux->best_pos == -1)
 		return ;
-	size_a = a->top + 1;
-    stack_index = 0;
+	aux->size_a = a->top + 1;
+	aux->stack_indx = 0;
 	if (aux->best_pos != 0)
 	{
-		if (aux->best_pos <= size_a / 2)
-			while (stack_index < aux->best_pos)
+		if (aux->best_pos <= (aux->size_a / 2))
+		{
+			while (aux->stack_indx < aux->best_pos)
 			{
 				rotate_a(a);
-				stack_index++;
+				aux->stack_indx++;
 			}
+		}
 		else
-			while (stack_index < size_a - aux->best_pos)
+		{
+			while (aux->stack_indx < (aux->size_a - aux->best_pos))
 			{
 				reverse_rotate_a(a);
-				stack_index++;
+				aux->stack_indx++;
 			}
+		}
 	}
 	push_to_b(a, b);
 }
 
-void	push_elements_back_to_a(t_list *a, t_list *b, l_list *aux)
+void	push_elements_back_to_a(t_list *a, t_list *b, t_lst *aux)
 {
 	int	stack_b_not_empty;
 	int	best_pos;
@@ -74,7 +75,7 @@ void	push_elements_back_to_a(t_list *a, t_list *b, l_list *aux)
 	}
 }
 
-void	finalize_sort(t_list *a, l_list *aux)
+void	finalize_sort(t_list *a, t_lst *aux)
 {
 	int	min_pos;
 
@@ -84,12 +85,12 @@ void	finalize_sort(t_list *a, l_list *aux)
 		move_to_bot(a, min_pos, 'a');
 }
 
-void	sort_large(t_list *a, t_list *b, l_list *aux)
+void	sort_large(t_list *a, t_list *b, t_lst *aux)
 {
-	int chunk_continue ;
-	int chunk_count;
-	int c_val;
-	int stack_size;
+	int	chunk_continue ;
+	int	chunk_count;
+	int	c_val;
+	int	stack_size;
 
 	stack_size = a->top + 1;
 	initialize_chunk(a, aux);
